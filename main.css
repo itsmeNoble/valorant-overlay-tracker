@@ -1,0 +1,87 @@
+:root {
+    --progresspontinho: 0%;
+    --main-bg: #0f1923;
+    --text-color: #ffffff;
+    --accent: #00ff9f;
+    --loss: #f87171;
+    --win: #4ade80;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    color: var(--text-color);
+}
+
+#overlay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 300px;
+    box-shadow: 0 0 12px rgba(0, 255, 159, 0.3);
+}
+
+.rank-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#imgRank {
+    width: 48px;
+    height: 48px;
+}
+
+.rank-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#headerburrao {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#WLvalue {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.progress-section {
+    width: 100%;
+    margin-top: 12px;
+    position: relative;
+}
+
+.rr-bar {
+    background: #2e3d4d;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rr-fill {
+    height: 100%;
+    width: var(--progresspontinho);
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.rr-text {
+    position: absolute;
+    top: -24px;
+    right: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.last-match {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--loss);
+}
