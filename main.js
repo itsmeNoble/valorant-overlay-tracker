@@ -61,6 +61,7 @@ function fetchPlayerData() {
             lastMatch.style.textAlign = "center";
             lastMatch.style.marginTop = "10px";
             lastMatch.style.marginBottom = "10px";
+            lastMatch.style.fontSize = "1.2em";
             lastMatch.style.color = mmrDiff < 0 ? "#f87171" : "#4ade80";
 
             if (current.images && current.images.small) {
