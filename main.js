@@ -19,6 +19,8 @@ const mmrBar = document.querySelector(".mmr-fill");
 const mmrBarValue = document.getElementById("mmrBarValue");
 const mmrBarText = document.getElementById("mmrBarText");
 const mmrBarValueText = document.getElementById("mmrBarValueText");
+const peakRank = document.getElementById("peakRank");
+const peakRankText = document.getElementById("peakRankText");
 
 
 if (!apikey || !nmusuario || !idusuario) {
@@ -39,6 +41,7 @@ function fetchPlayerData() {
 
             const current = data.data.current_data;
             const season = data.data.by_season.e10a3 || {};
+            const peak = data.data.highest_rank.patched_tier || "Unknown";
 
             const rank = current.currenttierpatched;
             const rr = current.ranking_in_tier;
@@ -51,6 +54,7 @@ function fetchPlayerData() {
             winLoss.innerText = `Win: ${wins} Lose: ${games - wins} (${winrate}%)`;
             rrText.innerText = `${rr}`;
             mmrDisplay.innerText = `MMR: ${current.elo}`;
+            peakRank.innerText = `Peak: ${peak}`;
             cssRoot.setProperty("--progresspontinho", `${rr}%`);
 
             lastMatch.innerText = `Last Match: ${mmrDiff > 0 ? "+" : ""}${mmrDiff} RR`;
