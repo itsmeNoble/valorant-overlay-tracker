@@ -15,7 +15,14 @@
             <div class="rank-info">
                 <div id="headerburrao">Loading...</div>
                 <div id="WLvalue">0 Win / 0 Loss</div>
-                <div id="peakRank">Peak: Unknown</div>
+                <!-- Updated Peak Rank Block -->
+                <div id="peakRankContainer" class="peak-rank">
+                    <span id="peakLabel">Peak:</span>
+                    <span id="peakRankText">Unknown</span>
+                    <img id="peakRankIcon" src="./Resources/Unranked.png" alt="Peak Rank Icon" />
+                </div>
+
+
             </div>
         </div>
 
@@ -26,7 +33,13 @@
             <div id="mmratual" class="rr-text">0</div>
         </div>
 
-        <div id="ultimapartida" class="last-match">Last Match: -- RR</div>
+        <div id="lastMatchWrapper" class="last-match">
+            <span id="ultimapartida">Last Match: -- RR</span>
+            <img id="tierMovementIcon" src="" alt="Tier Movement" style="width: 16px; height: 16px; margin-left: 6px; display: none;" />
+        </div>
+
+
+
     </div>
     <script src="main.js"></script>
 </body>

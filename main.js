@@ -19,8 +19,10 @@ const mmrBar = document.querySelector(".mmr-fill");
 const mmrBarValue = document.getElementById("mmrBarValue");
 const mmrBarText = document.getElementById("mmrBarText");
 const mmrBarValueText = document.getElementById("mmrBarValueText");
-const peakRank = document.getElementById("peakRank");
 const peakRankText = document.getElementById("peakRankText");
+const peakRankIcon = document.getElementById("peakRankIcon");
+const peakRank = document.getElementById("peakRank");
+const tierMovementIcon = document.getElementById("tierMovementIcon");
 
 
 if (!apikey || !nmusuario || !idusuario) {
@@ -54,10 +56,69 @@ function fetchPlayerData() {
             winLoss.innerText = `Win: ${wins} Lose: ${games - wins} (${winrate}%)`;
             rrText.innerText = `${rr}`;
             // mmrDisplay.innerText = `MMR: ${current.elo}`;
-            peakRank.innerText = `Peak: ${peak}`;
+            document.getElementById("peakRankText").innerText = peak;
+
+            let peakIcon = "./Resources/Unranked.png";
+
+            if (peak.includes("Iron 1")) peakIcon = "./Resources/3.png";
+            else if (peak.includes("Iron 2")) peakIcon = "./Resources/4.png";
+            else if (peak.includes("Iron 3")) peakIcon = "./Resources/5.png";
+            else if (peak.includes("Bronze 1")) peakIcon = "./Resources/6.png";
+            else if (peak.includes("Bronze 2")) peakIcon = "./Resources/7.png";
+            else if (peak.includes("Bronze 3")) peakIcon = "./Resources/8.png";
+            else if (peak.includes("Silver 1")) peakIcon = "./Resources/9.png";
+            else if (peak.includes("Silver 2")) peakIcon = "./Resources/10.png";
+            else if (peak.includes("Silver 3")) peakIcon = "./Resources/11.png";
+            else if (peak.includes("Gold 1")) peakIcon = "./Resources/12.png";
+            else if (peak.includes("Gold 2")) peakIcon = "./Resources/13.png";
+            else if (peak.includes("Gold 3")) peakIcon = "./Resources/14.png";
+            else if (peak.includes("Platinum 1")) peakIcon = "./Resources/15.png";
+            else if (peak.includes("Platinum 2")) peakIcon = "./Resources/16.png";
+            else if (peak.includes("Platinum 3")) peakIcon = "./Resources/17.png";
+            else if (peak.includes("Diamond 1")) peakIcon = "./Resources/18.png";
+            else if (peak.includes("Diamond 2")) peakIcon = "./Resources/19.png";
+            else if (peak.includes("Diamond 3")) peakIcon = "./Resources/20.png";
+            else if (peak.includes("Ascendant 1")) peakIcon = "./Resources/21.png";
+            else if (peak.includes("Ascendant 2")) peakIcon = "./Resources/22.png";
+            else if (peak.includes("Ascendant 3")) peakIcon = "./Resources/23.png";
+            else if (peak.includes("Immortal 1")) peakIcon = "./Resources/24.png";
+            else if (peak.includes("Immortal 2")) peakIcon = "./Resources/25.png";
+            else if (peak.includes("Immortal 3")) peakIcon = "./Resources/26.png";
+            else if (peak.includes("Radiant")) peakIcon = "./Resources/27.png";
+
+            peakRankIcon.src = peakIcon;
+
             cssRoot.setProperty("--progresspontinho", `${rr}%`);
 
             lastMatch.innerText = `Last Match: ${mmrDiff > 0 ? "+" : ""}${mmrDiff} RR`;
+            lastMatch.style.color = mmrDiff < 0 ? "#f87171" : "#4ade80";
+
+            // Determine icon just by RR change
+            let movementIcon = "";
+            let showIcon = true;
+
+            if (mmrDiff >= 18) {
+                movementIcon = "./Resources/TX_CompetitiveTierMovement_MajorIncrease.png";
+            } else if (mmrDiff >= 10) {
+                movementIcon = "./Resources/TX_CompetitiveTierMovement_MinorIncrease.png";
+            } else if (mmrDiff > 0) {
+                movementIcon = "./Resources/TX_CompetitiveTierMovement_Promoted.png";
+            } else if (mmrDiff <= -21) {
+                movementIcon = "./Resources/TX_CompetitiveTierMovement_MajorDecrease.png";
+            } else if (mmrDiff <= -10) {
+                movementIcon = "./Resources/TX_CompetitiveTierMovement_MediumDecrease.png";
+            } else if (mmrDiff < 0) {
+                movementIcon = "./Resources/TX_CompetitiveTierMovement_MinorDecrease.png";
+            } else {
+                showIcon = false;
+            }
+
+            if (showIcon) {
+                tierMovementIcon.src = movementIcon;
+                tierMovementIcon.style.display = "inline-block";
+            } else {
+                tierMovementIcon.style.display = "none";
+            }
 
             lastMatch.style.textShadow = "0 0 5px #000";
             lastMatch.style.transition = "color 0.3s ease-in-out";
