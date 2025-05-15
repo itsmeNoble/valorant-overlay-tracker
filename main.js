@@ -12,6 +12,14 @@ const rrBar = document.querySelector(".rr-fill");
 const rrText = document.getElementById("mmratual");
 const lastMatch = document.getElementById("ultimapartida");
 const imgRank = document.getElementById("imgRank");
+const mmrDisplay = document.getElementById("mmrDisplay");
+const mmrValue = document.getElementById("mmrValue");
+const mmrText = document.getElementById("mmrText");
+const mmrBar = document.querySelector(".mmr-fill");
+const mmrBarValue = document.getElementById("mmrBarValue");
+const mmrBarText = document.getElementById("mmrBarText");
+const mmrBarValueText = document.getElementById("mmrBarValueText");
+
 
 if (!apikey || !nmusuario || !idusuario) {
     header.innerText = "Missing parameters";
@@ -42,9 +50,17 @@ function fetchPlayerData() {
             header.innerText = `${rank} - ${rr}RR`;
             winLoss.innerText = `Win: ${wins} Lose: ${games - wins} (${winrate}%)`;
             rrText.innerText = `${rr}`;
+            mmrDisplay.innerText = `MMR: ${current.elo}`;
             cssRoot.setProperty("--progresspontinho", `${rr}%`);
 
-            lastMatch.innerText = `Last Match: ${mmrDiff > 0 ? "+" : ""}${mmrDiff} PTS`;
+            lastMatch.innerText = `Last Match: ${mmrDiff > 0 ? "+" : ""}${mmrDiff} RR`;
+
+            lastMatch.style.textShadow = "0 0 5px #000";
+            lastMatch.style.transition = "color 0.3s ease-in-out";
+            lastMatch.style.opacity = "1";
+            lastMatch.style.textAlign = "center";
+            lastMatch.style.marginTop = "10px";
+            lastMatch.style.marginBottom = "10px";
             lastMatch.style.color = mmrDiff < 0 ? "#f87171" : "#4ade80";
 
             if (current.images && current.images.small) {

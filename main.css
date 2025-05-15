@@ -85,3 +85,10 @@ body {
     font-size: 14px;
     color: var(--loss);
 }
+
+#mmrDisplay {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 4px;
+    color: #94a3b8;
+}
