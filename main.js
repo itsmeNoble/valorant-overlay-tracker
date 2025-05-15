@@ -53,7 +53,7 @@ function fetchPlayerData() {
             header.innerText = `${rank} - ${rr}RR`;
             winLoss.innerText = `Win: ${wins} Lose: ${games - wins} (${winrate}%)`;
             rrText.innerText = `${rr}`;
-            mmrDisplay.innerText = `MMR: ${current.elo}`;
+            // mmrDisplay.innerText = `MMR: ${current.elo}`;
             peakRank.innerText = `Peak: ${peak}`;
             cssRoot.setProperty("--progresspontinho", `${rr}%`);
 
