@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient( to bottom right, rgba(0, 0, 0, 0.651), rgba(0, 255, 159, 0));
+    background: linear-gradient( to bottom right, rgb(0, 0, 0), rgba(0, 255, 159, 0));
     border-radius: 16px;
     padding: 20px;
     max-width: 320px;
@@ -34,8 +34,8 @@ body {
 }
 
 #imgRank {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
 }
 
 .rank-info {
@@ -44,13 +44,18 @@ body {
 }
 
 #headerburrao {
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 900;
+    font-size: 18px;
+    /* Increased size */
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 #WLvalue {
-    font-size: 14px;
-    opacity: 0.8;
+    font-size: 16px;
+    opacity: 1;
+    font-weight: 500;
+    color: #cccccc;
 }
 
 .progress-section {
@@ -94,7 +99,7 @@ body {
     font-size: 14px;
     opacity: 0.8;
     margin-top: 4px;
-    color: #94a3b8;
+    color: #000103;
 }
 
 .peak-rank {
@@ -107,12 +112,12 @@ body {
 }
 
 #peakLabel {
-    color: #ecfeffad;
+    color: #ffffff;
     /* Light blue for label */
 }
 
 #peakRankText {
-    color: #4fbef1;
+    color: #75d3ff;
     /* White for rank name */
 }
 
